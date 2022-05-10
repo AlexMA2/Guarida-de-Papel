@@ -1,0 +1,40 @@
+.result {
+    width: 50%;
+    text-align: center;
+    border-spacing: 0;
+}
+
+table {
+    border: 1px solid #0f0f0f;
+    width: 100%;
+}
+
+
+th {
+    letter-spacing: 2px;
+}
+
+td {
+    letter-spacing: 1px;
+}
+
+tbody td {
+    text-align: center;
+}
+
+tfoot th {
+    text-align: right;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #161515;
+    color: #f7f7f7;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+table {
+    background-color: #ebb521;
+}
