@@ -1,5 +1,11 @@
 .App {
   overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
+
 }
 
 .App-logo {
@@ -32,6 +38,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

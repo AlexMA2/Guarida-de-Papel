@@ -1,35 +1,39 @@
-
-import { useState } from "react"
-import Input from "../Input/Input.jsx"
-import './Form.css'
-import { postBook } from "../../services/books.js"
+import { useState } from "react";
+import Input from "../Input/Input.jsx";
+import "./Form.css";
+import { postBook } from "../../services/books.js";
 
 const Form = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const message = {
+      nombre_producto: e.target.producto.value,
+      precio_producto: e.target.precio.value,
+      solicitante_producto: e.target.solicitante.value,
+      motivo_producto: e.target.motivo.value,
+    };
 
-    const onSubmit = (e) => {
-        e.preventDefault()
-        const message = {
-            bookTitle: e.target.titulo.value,
-            author: e.target.autor.value,
-            direction: e.target.direccion.value,
-            reason: e.target.motivo.value,
-            date: e.target.entrega.value,
-        }
+    const messageComplete = {
+      adjudicacionInput: message,
+    };
 
-        const response = postBook(message)
-    }
+    postBook(messageComplete);
+  };
 
-    return (
-        <form className="form" onSubmit={onSubmit}>
-            <h2> Reserva tu Libro </h2>
-            <Input name="Titulo del Libro" id="titulo"/>
-            <Input name="Autor" id="autor" />
-            <Input name="Direccion" id="direccion" />
-            <Input name="Motivo" id="motivo"/>                
-            <Input name="Fecha de entrega" id="entrega" type="date"/>
-            <input type="submit" value="Reservar"/>
-        </form>
-    )
-}
+  return (
+    <form className="form" onSubmit={onSubmit}>
+      <h2> An&aacute;lisis de sentimientos de Salud </h2>
+      <div>
+        <label> Texto </label>
+        <textarea cols="30" rows="10"></textarea>
+        <p></p>
+      </div>
 
-export default Form
+      <Input name="Palabra clave (Opcional)" id="motivo" />
+
+      <input type="submit" value="Enviar" />
+    </form>
+  );
+};
+
+export default Form;
